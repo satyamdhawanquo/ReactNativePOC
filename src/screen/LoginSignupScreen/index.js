@@ -6,7 +6,9 @@ const LoginStack = createStackNavigator();
 const LoginSignupScreen = () => {
     return (
         <LoginStack.Navigator initialRouteName="Login">
-            <LoginStack.Screen name="Login" component={Signup} />
+            <LoginStack.Screen name="Login" component={Signup} options={{
+                headerShown: false
+            }} />
         </LoginStack.Navigator>
     );
 }

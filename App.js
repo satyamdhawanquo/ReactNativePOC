@@ -5,7 +5,6 @@
  * @format
  * @flow strict-local
  */
-import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -25,7 +24,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+import LoginSignupScreen from './src/screen/LoginSignupScreen';
 
 const App = () => {
   return (
