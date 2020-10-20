@@ -14,8 +14,8 @@ const FloatingButton = ({icon,handlePress}) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: 100,
-        height: 100,
+        width: 95,
+        height: 95,
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:'white',
