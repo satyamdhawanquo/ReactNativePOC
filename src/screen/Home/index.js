@@ -65,7 +65,7 @@ const SeeMore = ({text}) => {
   return (
     <View style={styles.headerText}>
       <HomeText text={text} />
-      <HorizontalButton text={'See More'} height={30} width={70} />
+      <HorizontalButton text={constant.seeMore} height={30} width={70} />
     </View>
   );
 };

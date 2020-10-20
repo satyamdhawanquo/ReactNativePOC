@@ -7,6 +7,7 @@ import {
   Text,
   Image,
   Dimensions,
+  Alert,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import FloatingButton from '../../components/FloatingButton';
@@ -40,17 +41,24 @@ const SigninContent = ({navigation}) => {
   };
 
   const submit = async () => {
-    // const allUsers = await AsyncStorage.getItem('users');
-    // const user = allUsers.filter((item) => {
-    //   return item.email !== email && item.password !== password;
-    // });
-    // redirect the user to home screen
-    // if (user && user.length > 0) {
-      navigation.navigate('Home');
-    // }
-    // error
-    // else {
-    // }
+    const users = await AsyncStorage.getItem('users');
+    const allUsers = JSON.parse(users);
+    if (email !== '' && password!=='') {
+      const user = allUsers.filter((item) => {
+        return item.email == email && item.password == password;
+      });
+      // redirect the user to home screen
+      if (user && user.length === 1) {
+        navigation.navigate('Home');
+      }
+      // error
+      else {
+        Alert.alert('Incorrect email and password.');
+      }
+    }
+    else {
+      Alert.alert('Email and password cannot be empty');
+    }
   };
 
   return (
@@ -62,6 +70,7 @@ const SigninContent = ({navigation}) => {
         onChangeText={enterEmail}
       />
       <TextInput
+        secureTextEntry={true}
         placeholder="Password"
         placeholderTextColor="#747474"
         accessibilityElementsHidden={true}
