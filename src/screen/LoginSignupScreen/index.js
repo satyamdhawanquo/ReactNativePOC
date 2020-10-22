@@ -7,7 +7,6 @@ import HomeScreen from '../HomeScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 const LoginStack = createStackNavigator();
 const LoginSignupScreen = () => {
-  [user, setUser] = useState({});
   return (
     <LoginStack.Navigator initialRouteName="Login">
       <LoginStack.Screen

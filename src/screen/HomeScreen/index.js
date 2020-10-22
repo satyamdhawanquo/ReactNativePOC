@@ -6,7 +6,7 @@ import Home from '../Home';
 import Detail from '../Detail';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import Search from '../../screen/Search';
 const HomeTabNavigator = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -34,7 +34,7 @@ const HomeScreen = () => {
 
       <HomeTabNavigator.Screen
         name="Search"
-        getComponent={SearchStackComponent}
+        component={SearchStackComponent}
         options={{
           tabBarIcon: () => {
             return <Icon name="search" size={30} color="white" />;
@@ -43,7 +43,7 @@ const HomeScreen = () => {
       />
       <HomeTabNavigator.Screen
         name="Account"
-        getComponent={HomeStackComponent}
+        component={HomeStackComponent}
         options={{
           tabBarIcon: () => {
             return <Icon name="user-circle" size={30} color="white" />;
@@ -74,15 +74,20 @@ const HomeStackComponent = () => {
 };
 
 const SearchStackComponent = () => {
-    return (
-      <SearchStack.Navigator initialRouteName={'SearchScreen'}>
-        <SearchStack.Screen
-          name="SearchScreen"
-          component={Search}
-          options={{headerShown: false}}
-        />
-      </SearchStack.Navigator>
-    );
-  };
+  return (
+    <SearchStack.Navigator initialRouteName={'SearchScreen'}>
+      <SearchStack.Screen
+        name="SearchScreen"
+        component={Search}
+        options={{headerShown: false}}
+      />
+      <SearchStack.Screen
+        name="Details"
+        component={Detail}
+        options={{headerBackTitle: 'Search'}}
+      />
+    </SearchStack.Navigator>
+  );
+};
 
 export default HomeScreen;

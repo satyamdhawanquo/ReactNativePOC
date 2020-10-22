@@ -48,7 +48,7 @@ class Home extends Component {
       <View>
         <SafeAreaView>
           <View>
-            <SeeMore text={constant.topMovies} />
+            <SeeMore text={constant.topMovies} navigation={this.props.navigation} />
             <HorizontalList data={topRated} navigation={navigation} />
           </View>
           <View>
@@ -61,11 +61,11 @@ class Home extends Component {
   }
 }
 
-const SeeMore = ({text}) => {
+const SeeMore = ({text, navigation}) => {
   return (
     <View style={styles.headerText}>
       <HomeText text={text} />
-      <HorizontalButton text={constant.seeMore} height={30} width={70} />
+      <HorizontalButton text={constant.seeMore} height={30} width={70} navigation={navigation} navigateLink={'SeeMoreView'}/>
     </View>
   );
 };
