@@ -5,8 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../Home';
 import Detail from '../Detail';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import AsyncStorage from '@react-native-community/async-storage';
+import SeeMore from '../SeeMore';
 import Search from '../../screen/Search';
+import Account from '../../screen/Account';
 const HomeTabNavigator = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -43,7 +44,7 @@ const HomeScreen = () => {
       />
       <HomeTabNavigator.Screen
         name="Account"
-        component={HomeStackComponent}
+        component={Account}
         options={{
           tabBarIcon: () => {
             return <Icon name="user-circle" size={30} color="white" />;
@@ -68,6 +69,11 @@ const HomeStackComponent = () => {
         name="Details"
         component={Detail}
         options={{headerBackTitle: 'Home'}}
+      />
+      <HomeStack.Screen
+        name="See More"
+        component={SeeMore}
+        options={{headerBackTitle: 'Home', headerTintColor: 'white'}}
       />
     </HomeStack.Navigator>
   );

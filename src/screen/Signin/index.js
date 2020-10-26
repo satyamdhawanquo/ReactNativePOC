@@ -116,7 +116,7 @@ const Signin = ({navigation}) => {
   const getUser = async () => {
     const loggedInUser = JSON.parse(await AsyncStorage.getItem('loggedInUser'));
     const users = JSON.parse(await AsyncStorage.getItem('users'));
-    if (users) {
+    if (users && loggedInUser) {
       const user = users.filter((item) => {
         return (
           item.email == loggedInUser[0].email &&

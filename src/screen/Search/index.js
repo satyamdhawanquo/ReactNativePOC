@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
   viewArea: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
     width: '100%',
     height: '100%',
     zIndex: -1
